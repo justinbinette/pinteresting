@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<% flash.each do |name, msg| %>
+     <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+<% end %>
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 <html>
@@ -11,6 +14,9 @@ content="width=device-width, initial-scale=1.0">
   <body>
   <%= render 'layouts/header' %>
     <div class="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert alert-info") %>
+        <% end %>
         <%= yield %>
     </div>
   </body>
